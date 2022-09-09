@@ -310,7 +310,7 @@ function translatePage() {
   function translateElement(element) {
     const key = element.getAttribute("data-i18n-key");
     const translation = translations[key];
-    element.innerHTML = translation;
+    element.innerHTML =JSON.stringify(translation);
   }
 
   function bindLocaleSwitcher(initialValue) {
@@ -321,8 +321,7 @@ function translatePage() {
       // Set the locale to the selected option[value]
       window.localStorage.setItem('locale', e.target.value)
       setTimeout(() => {
-          setLocale(e.target.value);
-            
+          setLocale(e.target.value);  
           window.location.reload()
         },300)
     };
